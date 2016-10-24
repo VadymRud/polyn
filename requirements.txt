@@ -23,7 +23,7 @@ django-tracking2
 django-rosetta
 #jsonfield
 django-mptt
-pygraphviz
+#pygraphviz
 jsonfield #for sqlite and MySQL
 pdfkit
 
