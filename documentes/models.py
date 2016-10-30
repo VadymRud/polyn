@@ -26,3 +26,10 @@ class BaseDocumentes(models.Model):
 #приходна накладна
 class PurchaseInvoiceDocument(BaseDocumentes):
     stock_register = models.ForeignKey(Stock, verbose_name=_('Stock Register'))
+
+#Купівля землі
+# class PurchaseOfLand(BaseDocumentes):
+#     #number = None
+#     prefix_doc = models.CharField(default=_('POL'), max_length=22)
+#     def save(self):
+#         self.number = '%s  %s' %(self.prefix_doc, self.pk)
