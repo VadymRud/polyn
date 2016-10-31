@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'chart_account',
 
     'registeres',
-    'documentes',
+    #'documentes',
     'products',
 
 ]

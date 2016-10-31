@@ -15,21 +15,29 @@ class BaseDocumentes(models.Model):
     name = models.CharField(max_length=255, verbose_name = _('Full name'))
     number = models.CharField(max_length=255, verbose_name = _('Number'))
     chart_account_active = models.ManyToManyField(ChartAccaunt, verbose_name = _('Chart Accaunt Active'),
-                            related_name='chart_account_actives_related', blank=True)
+                            related_name='%(class)s_related_active', null=True)
     chart_account_passive = models.ManyToManyField(ChartAccaunt, verbose_name=_('Chart Accaunt Passive'),
-                            related_name='chart_account_passives_related', blank=True)
+                            related_name='%(class)s_related_passive', null=True)
 
     class Meta:
         abstract = True
+
+        app_label = 'PurchaseInvoiceDocument'
+
 
 
 #приходна накладна
 class PurchaseInvoiceDocument(BaseDocumentes):
     stock_register = models.ForeignKey(Stock, verbose_name=_('Stock Register'))
 
+
+
+
 #Купівля землі
 # class PurchaseOfLand(BaseDocumentes):
 #     #number = None
 #     prefix_doc = models.CharField(default=_('POL'), max_length=22)
+#
+#
 #     def save(self):
 #         self.number = '%s  %s' %(self.prefix_doc, self.pk)
